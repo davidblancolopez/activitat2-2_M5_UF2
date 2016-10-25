@@ -4,6 +4,14 @@ package activitat2_2_m5_uf2;
 
 
 
+/**
+ * El metodo Nif se encarga de revisar el NIF que se le pasa por parametro y 
+ * comprueba que este és correcto (primero comprueba la longitud de este y despues 
+ * comprueba mediante un calculo que conosiste en hacer el modulo del numero del NIF
+ * con 23 y el numero que salga se compara con una lista de caracteres, 
+ * si encaja la letra introducida con el caracter posicion es correcto, si no, es incorrecto).
+ * @author ALUMNEDAM
+ */
 public class Nif {
         private static String nif;
         private static String missatge;
