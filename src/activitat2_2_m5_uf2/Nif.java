@@ -8,7 +8,7 @@ public class Nif {
         private static String nif;
         private static String missatge;
 
-    public static String esValid(String nif) {
+    public static String esValid(String dni) {
          
         char[] llista = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
 
@@ -16,7 +16,7 @@ public class Nif {
         String letra;
         String numero;
         char[] charnif;
-
+        nif = dni;
         
         letra = nif.substring(nif.length() - 1);
         numero = nif.substring(0, nif.length() - 1);
