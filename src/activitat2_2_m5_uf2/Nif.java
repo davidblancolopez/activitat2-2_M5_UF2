@@ -13,17 +13,15 @@ package activitat2_2_m5_uf2;
  * @author ALUMNEDAM
  */
 public class Nif {
+        private static String letra;
         private static String nif;
         private static String missatge;
+        private static char[] llista = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
 
     public static String esValid(String dni) {
-         
-        char[] llista = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
 
         int num = 0;
-        String letra;
         String numero;
-        char[] charnif;
         nif = dni;
         
         letra = nif.substring(nif.length() - 1);
@@ -31,24 +29,55 @@ public class Nif {
 
         // primer mirem que la cadena tingui 8 o 9 caràcters:
 
-        if (nif.length() < 8 || nif.length() > 9) {
-            missatge = "Format Incorrecte";
-        } // Després mirem que el número sigui convertible a enter.
-        else {
+        if(comprovarFormat(nif)){
             try {
                 num = Integer.parseInt(numero);
 
-                if (String.valueOf(llista[num % 23]).equals(letra)) {
-                    missatge =  "Nif Vàlid";
-                } else {
-                    missatge = "Nif Invàlid";
-                }
+                comprovarNif(num);
 
             } catch (NumberFormatException e) {
                 missatge = "Format Incorrecte";
             }
-
+        }else{
+            missatge = "Format Incorrecte";
         }
+        
+        return missatge;
+    }
+    
+    
+    
+    
+    /**
+     * Este metodo comprueba el formato del nif introducido.
+     * @param nif
+     * @return 
+     */
+    public static boolean comprovarFormat(String nif){
+        boolean comprovacio;
+        if (nif.length() < 8 || nif.length() > 9) {
+            comprovacio = false;
+        }else{
+            comprovacio = true;
+        }
+        
+        return comprovacio;
+    }
+    
+    
+    /**
+     * Este metodo comprueba si la letra del nif es correcta con una lista de caracteres.
+     * @param num
+     * @return 
+     */
+    public static String comprovarNif(int num){
+        String missatge = null;
+        if (String.valueOf(llista[num % 23]).equals(letra)) {
+                    missatge =  "Nif Vàlid";
+                } else {
+                    missatge = "Nif Invàlid";
+                }
+        
         return missatge;
     }
     
