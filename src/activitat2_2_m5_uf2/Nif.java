@@ -33,7 +33,7 @@ public class Nif {
             try {
                 num = Integer.parseInt(numero);
 
-                comprovarNif(num);
+                missatge = comprovarNif(num);
 
             } catch (NumberFormatException e) {
                 missatge = "Format Incorrecte";
@@ -49,7 +49,8 @@ public class Nif {
     
     
     /**
-     * Este metodo comprueba el formato del nif introducido.
+     * Este metodo comprueba el formato del nif introducido, si es demasiado corto o demasiado largo
+     * devuelve en el boolean un false, si es correcto devolvera true.
      * @param nif
      * @return 
      */
@@ -71,7 +72,7 @@ public class Nif {
      * @return 
      */
     public static String comprovarNif(int num){
-        String missatge = null;
+        String missatge;
         if (String.valueOf(llista[num % 23]).equals(letra)) {
                     missatge =  "Nif Vàlid";
                 } else {
