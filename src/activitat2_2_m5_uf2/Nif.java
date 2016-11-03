@@ -67,7 +67,9 @@ public class Nif {
     
     
     /**
-     * Este metodo comprueba si la letra del nif es correcta con una lista de caracteres.
+     * Este metodo comprueba si la letra del nif es correcta con una lista de caracteres
+     * si es incorrecta el mensaje que se mostrara sera NIf invàlid si es correcto
+     * devolvera Nif vàlid.
      * @param num
      * @return 
      */
